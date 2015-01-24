@@ -9,6 +9,7 @@ public class PlayerControl : MonoBehaviour
 	public bool jump = false;				// Condition for whether the player should jump.
     [HideInInspector]
     public bool dash = false;
+    public Object jumpEffect;
 
 
 	public float moveForce = 365f;			// Amount of force added to move the player left and right.
@@ -88,6 +89,8 @@ public class PlayerControl : MonoBehaviour
 
 			// Add a vertical force to the player.
 			rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+
+            var newEffect = Instantiate(jumpEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 
 			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
 			jump = false;
