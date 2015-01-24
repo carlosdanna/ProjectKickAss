@@ -373,7 +373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &562441947
 RectTransform:
   m_ObjectHideFlags: 0
@@ -757,7 +757,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &964465957
 Transform:
   m_ObjectHideFlags: 0
@@ -1801,7 +1801,7 @@ GameObject:
   - 4: {fileID: 2066049855}
   - 114: {fileID: 2066049856}
   m_Layer: 0
-  m_Name: TextList
+  m_Name: UITextList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1814,7 +1814,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2066049854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 144.221191, y: 59.015564, z: 94.984375}
+  m_LocalPosition: {x: 144, y: 43, z: 95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1523040891}
@@ -1839,14 +1839,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ec3e5e0fc83dc44903652d6806f48e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetPoint: 2000
-  beginPoint: 0
+  resetPoint: 1700
+  beginPoint: 43
   y: 0
   currentPoint: 0
   scrollVelocity: 150
   mainMenu: {fileID: 964465956}
   creditsMenu: {fileID: 562441946}
-  text: {fileID: 2066049854}
+  transform: {fileID: 2066049855}
 --- !u!1 &2105463873
 GameObject:
   m_ObjectHideFlags: 0
