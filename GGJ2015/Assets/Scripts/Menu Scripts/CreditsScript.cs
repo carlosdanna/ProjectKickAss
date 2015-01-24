@@ -15,7 +15,6 @@ public class CreditsScript : MonoBehaviour {
 	// Update is called once per frame
 	public void Update ()
 	{
-		float test = transform.localPosition.y;
 		Vector3 vec = Vector3.zero;
 		vec.y = Time.deltaTime * scrollVelocity;
 		transform.Translate(vec);
