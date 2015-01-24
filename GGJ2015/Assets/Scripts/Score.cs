@@ -12,7 +12,6 @@ public class Score : MonoBehaviour
 
 	void Awake ()
 	{
-        
 		// Setting up the reference.
 		//playerControl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
 	}
@@ -22,8 +21,7 @@ public class Score : MonoBehaviour
 	{
 		// Set the score text.
         time += Time.deltaTime;
-        int intTime = (int)time;
-        guiText.text = time.ToString("   0.00") + " sec";
+        guiText.text = time.ToString("0.00") + " sec";
 
 		//// If the score has changed...
 		//if(previousScore != score)

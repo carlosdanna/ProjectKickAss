@@ -11,7 +11,6 @@ public class PlayerControl : MonoBehaviour
     public bool dash = false;
     public ParticleSystem jumpEffect;
     public Sprite landEffect;
-    public Object landEffect;
 
 
 	public float moveForce = 365f;			// Amount of force added to move the player left and right.
