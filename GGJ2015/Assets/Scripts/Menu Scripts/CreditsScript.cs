@@ -21,7 +21,7 @@ public class CreditsScript : MonoBehaviour {
 		vec.y = Time.deltaTime * scrollVelocity;
 		text.transform.Translate(vec);
 
-		if(currentPoint <= resetPoint)
+		if (text.transform.position.y >= resetPoint)
 		{
 			BacktoMainMenu();
 		}
@@ -30,7 +30,10 @@ public class CreditsScript : MonoBehaviour {
 
 	void BacktoMainMenu()
 	{
-		currentPoint = beginPoint;
+		currentPoint = 0;
+		Vector3 vec = Vector3.zero;
+		vec.y = -(resetPoint - beginPoint + (text.transform.position.y-resetPoint));
+		text.transform.Translate(vec);
 		mainMenu.SetActive(true);
 		creditsMenu.SetActive(false);
 	}
