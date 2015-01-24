@@ -7,20 +7,27 @@ public class PlayerControl : MonoBehaviour
 	public bool facingRight = true;			// For determining which way the player is currently facing.
 	[HideInInspector]
 	public bool jump = false;				// Condition for whether the player should jump.
-    [HideInInspector]
-    public bool dash = false;
-    public Object jumpEffect;
-    public Object landEffect;
+	[HideInInspector]
+	public bool dash = false;
+	public Object jumpEffect;
+	public Object landEffect;
+
+	public bool jumpEnabled = false;
+	public bool dashEnabled = false;
 
 
 	public float moveForce = 365f;			// Amount of force added to move the player left and right.
 	public float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
 	public AudioClip[] jumpClips;			// Array of clips for when the player jumps.
-    public float jumpForce = 1000f;			// Amount of force added when the player jumps.
-    public float dashForce = 1000f;			// Amount of force added when the player dashes.
+	public float jumpForce = 1000f;			// Amount of force added when the player jumps.
+	public float dashForce = 1000f;			// Amount of force added when the player dashes.
 	public AudioClip[] taunts;				// Array of clips for when the player taunts.
 	public float tauntProbability = 50f;	// Chance of a taunt happening.
 	public float tauntDelay = 1f;			// Delay for when the taunt should happen.
+
+	public GameObject jumpCollectable;
+	public GameObject dashCollectable;
+	
 
 
 	private int tauntIndex;					// The index of the taunts array indicating the most recent taunt.
@@ -46,8 +53,8 @@ public class PlayerControl : MonoBehaviour
 		if(Input.GetButtonDown("Jump") && grounded)
 			jump = true;
 
-        if (Input.GetButtonDown("Dash"))
-            dash = true;
+		if (Input.GetButtonDown("Dash"))
+			dash = true;
 	}
 
 
@@ -79,7 +86,7 @@ public class PlayerControl : MonoBehaviour
 			Flip();
 
 		// If the player should jump...
-		if(jump)
+		if(jump && jumpEnabled)
 		{
 			// Set the Jump animator trigger parameter.
 			anim.SetTrigger("Jump");
@@ -91,22 +98,23 @@ public class PlayerControl : MonoBehaviour
 			// Add a vertical force to the player.
 			rigidbody2D.AddForce(new Vector2(0f, jumpForce));
 
-            Instantiate(jumpEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+			//Commented out due to jumpEffect not being instantiated
+			//Instantiate(jumpEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 
 			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
 			jump = false;
 		}
 
-        if(dash)
-        {
-            Vector2 force = new Vector2(dashForce, 0f);
+		if(dash && dashEnabled)
+		{
+			Vector2 force = new Vector2(dashForce, 0f);
 
-            if (!facingRight)
-                force.x *= -1f;
+			if (!facingRight)
+				force.x *= -1f;
 
-            rigidbody2D.AddForce(force, ForceMode2D.Impulse);
-            dash = false;
-        }
+			rigidbody2D.AddForce(force, ForceMode2D.Impulse);
+			dash = false;
+		}
 	}
 
 
@@ -122,11 +130,25 @@ public class PlayerControl : MonoBehaviour
 	}
 
 
-    void OnCollisionEnter2D( Collision2D collision )
-    {
-        if( collision.gameObject.layer == LayerMask.NameToLayer("Ground") )
-            Instantiate(landEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-    }
+	void OnCollisionEnter2D( Collision2D collision )
+	{
+		if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+		{
+			//Commented out due to landEffect not being instantiated
+			//Instantiate(landEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+		}
+
+		if (collision.gameObject == jumpCollectable)
+		{
+			UnityEngine.GameObject.Destroy(jumpCollectable);
+			jumpEnabled = true;
+		}
+		if (collision.gameObject == dashCollectable)
+		{
+			UnityEngine.GameObject.Destroy(dashCollectable);
+			dashEnabled = true;
+		}
+	}
 
 
 	//public IEnumerator Taunt()
@@ -137,13 +159,13 @@ public class PlayerControl : MonoBehaviour
 	//	{
 	//		// Wait for tauntDelay number of seconds.
 	//		yield return new WaitForSeconds(tauntDelay);
-    //
+	//
 	//		// If there is no clip currently playing.
 	//		if(!audio.isPlaying)
 	//		{
 	//			// Choose a random, but different taunt.
 	//			tauntIndex = TauntRandom();
-    //
+	//
 	//			// Play the new taunt.
 	//			audio.clip = taunts[tauntIndex];
 	//			audio.Play();
@@ -156,7 +178,7 @@ public class PlayerControl : MonoBehaviour
 	//{
 	//	// Choose a random index of the taunts array.
 	//	int i = Random.Range(0, taunts.Length);
-    //
+	//
 	//	// If it's the same as the previous taunt...
 	//	if(i == tauntIndex)
 	//		// ... try another random taunt.

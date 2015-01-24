@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21255940}
   - 60: {fileID: 6013862}
   - 50: {fileID: 5013862}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
