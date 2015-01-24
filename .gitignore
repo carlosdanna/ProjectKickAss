@@ -65,3 +65,13 @@ $RECYCLE.BIN/
 
 *.suo
 *.csproj
+/GGJ2015/Assets/UnityVS/Editor.meta
+/GGJ2015/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll
+/GGJ2015/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll.meta
+/GGJ2015/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Messaging.dll
+/GGJ2015/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Messaging.dll.meta
+/GGJ2015/Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll
+/GGJ2015/Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll.meta
+/GGJ2015/UnityVS.GGJ2015.CSharp.csproj
+/GGJ2015/UnityVS.GGJ2015.sln
+/GGJ2015/UnityVS.GGJ2015.v12.suo
