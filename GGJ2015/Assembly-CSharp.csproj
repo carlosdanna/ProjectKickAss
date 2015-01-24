@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\ScoreShadow.cs" />
      <Compile Include="Assets\Scripts\SetParticleSortingLayer.cs" />
+     <Compile Include="Assets\Scripts\SetTrailSortingLayer.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
