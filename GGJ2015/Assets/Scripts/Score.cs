@@ -12,6 +12,7 @@ public class Score : MonoBehaviour
 
 	void Awake ()
 	{
+        
 		// Setting up the reference.
 		//playerControl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
 	}
