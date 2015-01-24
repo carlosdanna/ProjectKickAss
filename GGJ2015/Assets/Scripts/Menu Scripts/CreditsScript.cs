@@ -22,15 +22,18 @@ public class CreditsScript : MonoBehaviour {
 		if (transform.localPosition.y >= resetPoint)
 		{
 			BacktoMainMenu();
+			//transform.position = new Vector3(136, -36, 95);
 		}
 	
 	}
 
 	public void BacktoMainMenu()
 	{
-		Vector3 vec = Vector3.zero;
-		vec.y = -(transform.localPosition.y - beginPoint);
-		transform.Translate(vec);
+		//Vector3 vec = Vector3.zero;
+		//vec.y = -(transform.localPosition.y - beginPoint);
+		//transform.Translate(vec);
+		transform.localPosition = new Vector3(136, -36, 95);
+
 		mainMenu.SetActive(true);
 		creditsMenu.SetActive(false);
 	}
