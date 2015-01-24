@@ -137,7 +137,7 @@ GameObject:
   - 114: {fileID: 335855069}
   - 82: {fileID: 335855068}
   m_Layer: 0
-  m_Name: Score
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,9 +229,9 @@ GUIText:
   m_PixelOffset: {x: 0, y: 0}
   m_LineSpacing: 1
   m_TabSize: 4
-  m_Font: {fileID: 12800000, guid: 35c5dd3e273cc7f4ba435882ca2b3e5c, type: 3}
+  m_Font: {fileID: 12800000, guid: 6ce772cb6f53eb8458c1bfab260e3cec, type: 3}
   m_Material: {fileID: 0}
-  m_FontSize: 80
+  m_FontSize: 48
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2
@@ -1706,7 +1706,7 @@ GameObject:
   - 132: {fileID: 604767755}
   - 114: {fileID: 604767757}
   m_Layer: 0
-  m_Name: Score-shadow
+  m_Name: Timer-shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1726,9 +1726,9 @@ GUIText:
   m_PixelOffset: {x: 0, y: 0}
   m_LineSpacing: 1
   m_TabSize: 4
-  m_Font: {fileID: 12800000, guid: 35c5dd3e273cc7f4ba435882ca2b3e5c, type: 3}
+  m_Font: {fileID: 12800000, guid: 6ce772cb6f53eb8458c1bfab260e3cec, type: 3}
   m_Material: {fileID: 0}
-  m_FontSize: 80
+  m_FontSize: 48
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2

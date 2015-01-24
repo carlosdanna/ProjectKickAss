@@ -151,7 +151,7 @@ GameObject:
   - 222: {fileID: 87191066}
   - 114: {fileID: 87191065}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Title Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -739,7 +739,7 @@ GameObject:
   - 114: {fileID: 846826620}
   - 114: {fileID: 846826623}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Credits Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1337,8 +1337,9 @@ GameObject:
   - 222: {fileID: 1480672871}
   - 114: {fileID: 1480672870}
   - 114: {fileID: 1480672869}
+  - 114: {fileID: 1480672872}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Play Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1401,12 +1402,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 1480672872}
+        m_MethodName: GotoCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1441,6 +1443,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1480672867}
+--- !u!114 &1480672872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1480672867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed696a84d379a9340b4c4f953ef45c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1486701478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,7 +1467,7 @@ GameObject:
   - 114: {fileID: 1486701480}
   - 114: {fileID: 1486701483}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Sound Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
