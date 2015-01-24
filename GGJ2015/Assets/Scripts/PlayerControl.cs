@@ -7,12 +7,17 @@ public class PlayerControl : MonoBehaviour
 	public bool facingRight = true;			// For determining which way the player is currently facing.
 	[HideInInspector]
 	public bool jump = false;				// Condition for whether the player should jump.
+    [HideInInspector]
+    public bool dash = false;
+    public Object jumpEffect;
+    public Object landEffect;
 
 
 	public float moveForce = 365f;			// Amount of force added to move the player left and right.
 	public float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
 	public AudioClip[] jumpClips;			// Array of clips for when the player jumps.
-	public float jumpForce = 1000f;			// Amount of force added when the player jumps.
+    public float jumpForce = 1000f;			// Amount of force added when the player jumps.
+    public float dashForce = 1000f;			// Amount of force added when the player dashes.
 	public AudioClip[] taunts;				// Array of clips for when the player taunts.
 	public float tauntProbability = 50f;	// Chance of a taunt happening.
 	public float tauntDelay = 1f;			// Delay for when the taunt should happen.
@@ -40,6 +45,9 @@ public class PlayerControl : MonoBehaviour
 		// If the jump button is pressed and the player is grounded then the player should jump.
 		if(Input.GetButtonDown("Jump") && grounded)
 			jump = true;
+
+        if (Input.GetButtonDown("Dash"))
+            dash = true;
 	}
 
 
@@ -83,12 +91,25 @@ public class PlayerControl : MonoBehaviour
 			// Add a vertical force to the player.
 			rigidbody2D.AddForce(new Vector2(0f, jumpForce));
 
+            Instantiate(jumpEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+
 			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
 			jump = false;
 		}
+
+        if(dash)
+        {
+            Vector2 force = new Vector2(dashForce, 0f);
+
+            if (!facingRight)
+                force.x *= -1f;
+
+            rigidbody2D.AddForce(force, ForceMode2D.Impulse);
+            dash = false;
+        }
 	}
-	
-	
+
+
 	void Flip ()
 	{
 		// Switch the way the player is labelled as facing.
@@ -101,40 +122,47 @@ public class PlayerControl : MonoBehaviour
 	}
 
 
-	public IEnumerator Taunt()
-	{
-		// Check the random chance of taunting.
-		float tauntChance = Random.Range(0f, 100f);
-		if(tauntChance > tauntProbability)
-		{
-			// Wait for tauntDelay number of seconds.
-			yield return new WaitForSeconds(tauntDelay);
-
-			// If there is no clip currently playing.
-			if(!audio.isPlaying)
-			{
-				// Choose a random, but different taunt.
-				tauntIndex = TauntRandom();
-
-				// Play the new taunt.
-				audio.clip = taunts[tauntIndex];
-				audio.Play();
-			}
-		}
-	}
+    void OnCollisionEnter2D( Collision2D collision )
+    {
+        if( collision.gameObject.layer == LayerMask.NameToLayer("Ground") )
+            Instantiate(landEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+    }
 
 
-	int TauntRandom()
-	{
-		// Choose a random index of the taunts array.
-		int i = Random.Range(0, taunts.Length);
+	//public IEnumerator Taunt()
+	//{
+	//	// Check the random chance of taunting.
+	//	float tauntChance = Random.Range(0f, 100f);
+	//	if(tauntChance > tauntProbability)
+	//	{
+	//		// Wait for tauntDelay number of seconds.
+	//		yield return new WaitForSeconds(tauntDelay);
+    //
+	//		// If there is no clip currently playing.
+	//		if(!audio.isPlaying)
+	//		{
+	//			// Choose a random, but different taunt.
+	//			tauntIndex = TauntRandom();
+    //
+	//			// Play the new taunt.
+	//			audio.clip = taunts[tauntIndex];
+	//			audio.Play();
+	//		}
+	//	}
+	//}
 
-		// If it's the same as the previous taunt...
-		if(i == tauntIndex)
-			// ... try another random taunt.
-			return TauntRandom();
-		else
-			// Otherwise return this index.
-			return i;
-	}
+
+	//int TauntRandom()
+	//{
+	//	// Choose a random index of the taunts array.
+	//	int i = Random.Range(0, taunts.Length);
+    //
+	//	// If it's the same as the previous taunt...
+	//	if(i == tauntIndex)
+	//		// ... try another random taunt.
+	//		return TauntRandom();
+	//	else
+	//		// Otherwise return this index.
+	//		return i;
+	//}
 }
