@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
     [HideInInspector]
     public bool dash = false;
     public Object jumpEffect;
+    public Object landEffect;
 
 
 	public float moveForce = 365f;			// Amount of force added to move the player left and right.
@@ -90,7 +91,7 @@ public class PlayerControl : MonoBehaviour
 			// Add a vertical force to the player.
 			rigidbody2D.AddForce(new Vector2(0f, jumpForce));
 
-            var newEffect = Instantiate(jumpEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            Instantiate(jumpEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
 
 			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
 			jump = false;
@@ -119,6 +120,13 @@ public class PlayerControl : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+
+    void OnCollisionEnter2D( Collision2D collision )
+    {
+        if( collision.gameObject.layer == LayerMask.NameToLayer("Ground") )
+            Instantiate(landEffect, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+    }
 
 
 	//public IEnumerator Taunt()
