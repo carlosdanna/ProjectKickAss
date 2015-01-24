@@ -9,7 +9,10 @@ public class Pauser : MonoBehaviour {
 		if(Input.GetKeyUp(KeyCode.P))
 		{
 			paused = !paused;
-		}
+		} else if(Input.GetButtonUp("Cancel"))
+        {
+            Application.LoadLevel("MainMenu");
+        }
 
 		if(paused)
 			Time.timeScale = 0;

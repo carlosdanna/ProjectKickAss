@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: 04637d2f985a3c4498187d670677c36a
+guid: 4909fa5aaa817514797cacab04efa695
 TextureImporter:
   fileIDToRecycleName:
-    21300000: dino_0
-    21300002: dino_1
-    21300004: dino_2
-    21300006: dino_3
-    21300008: dino_4
-    21300010: dino_5
-    21300012: dino_6
-    21300014: dino_7
+    21300000: DinoRun_0
+    21300002: DinoRun_1
+    21300004: DinoRun_2
+    21300006: DinoRun_3
+    21300008: DinoRun_5
+    21300010: DinoRun_6
+    21300012: DinoRun_7
+    21300014: DinoRun_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -51,7 +51,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: dino_0
+    - name: DinoRun_0
       rect:
         serializedVersion: 2
         x: 0
@@ -61,7 +61,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: dino_1
+    - name: DinoRun_1
       rect:
         serializedVersion: 2
         x: 56
@@ -71,7 +71,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: dino_2
+    - name: DinoRun_2
       rect:
         serializedVersion: 2
         x: 112
@@ -81,27 +81,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: dino_3
+    - name: DinoRun_3
       rect:
         serializedVersion: 2
         x: 168
         y: 0
         width: 55
-        height: 31
+        height: 30
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: dino_4
-      rect:
-        serializedVersion: 2
-        x: 223
-        y: 0
-        width: 55
-        height: 31
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: dino_5
+    - name: DinoRun_5
       rect:
         serializedVersion: 2
         x: 281
@@ -111,7 +101,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: dino_6
+    - name: DinoRun_6
       rect:
         serializedVersion: 2
         x: 337
@@ -121,13 +111,23 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: dino_7
+    - name: DinoRun_7
       rect:
         serializedVersion: 2
         x: 393
         y: 0
         width: 55
         height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DinoRun_4
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 0
+        width: 58
+        height: 31
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
